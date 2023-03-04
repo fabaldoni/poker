@@ -25,9 +25,9 @@ function getRandomizedDeck(){
 }
 
 function isValidCard(card){
-    return (typeof card != 'string' ||
-    !suits.includes(card.substring(card.length-1)) ||
-    !values.includes(card.substring(0,card,length-1)))?false:true
+    return ((typeof card == 'string') &&
+    suits.includes(card.substring(card.length-1)) &&
+    values.includes(parseInt(card.substring(0,card.length-1))))?true:false
 }
 
 
