@@ -1,5 +1,6 @@
 const crypto = require('crypto');
 const df = require("./DeckFactory");
+const u = require("./utilities");
 
 class Player{
     #id;
@@ -23,7 +24,7 @@ class Player{
     set hand(h){
         let first,last;
         [first, last]= h;
-        if(!df.isValidCard(first) || !df.isValidCard(last)) {
+        if(!u.isValidCard(first) || !u.isValidCard(last)) {
             throw new Error(`At least one card is invalid: first card is ${first}, last card is ${last}`);
         }
 

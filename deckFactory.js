@@ -1,8 +1,8 @@
 
 const crypto = require('crypto');
+const u = require("./utilities");
 
-const suits = ['s','d','c','h'];
-const values = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+
 
 function shuffle(a) {
     for (let i = a.length - 1; i > 0; i--) {
@@ -15,7 +15,7 @@ function shuffle(a) {
 
 function getDeck(){
     deck = [];
-    values.forEach(v=>{suits.forEach(s=>{deck.push(v+s)})});
+    u.values.forEach(v=>{u.suits.forEach(s=>{deck.push(v+s)})});
     return deck;
 }
 
@@ -24,15 +24,15 @@ function getRandomizedDeck(){
     return shuffle(deck);
 }
 
-function isValidCard(card){
+/* function isValidCard(card){
     return ((typeof card == 'string') &&
     suits.includes(card.substring(card.length-1)) &&
     values.includes(parseInt(card.substring(0,card.length-1))))?true:false
-}
+} */
 
 
-exports.suits = suits;
-exports.values = values;
+// exports.suits = suits;
+// exports.values = values;
 exports.getRandomizedDeck = getRandomizedDeck;
-exports.isValidCard = isValidCard;
+// exports.isValidCard = isValidCard;
 
